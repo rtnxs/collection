@@ -115,21 +115,6 @@
           null
         ]
       },
-      "/home/user/projects/collection/app/models/user.rb": {
-        "lines": [
-          1,
-          null
-        ]
-      },
-      "/home/user/projects/collection/app/models/application_record.rb": {
-        "lines": [
-          null,
-          null,
-          1,
-          1,
-          null
-        ]
-      },
       "/home/user/projects/collection/spec/requests/users_spec.rb": {
         "lines": [
           1,
@@ -200,15 +185,15 @@
           null,
           null,
           1,
-          1,
+          0,
           null,
-          1,
+          0,
           null,
-          1,
+          0,
           null,
-          1,
+          0,
           null,
-          1,
+          0,
           null,
           null,
           null
@@ -235,10 +220,10 @@
           null,
           null,
           1,
-          1,
-          1,
-          1,
-          1,
+          0,
+          0,
+          0,
+          0,
           null,
           null
         ]
@@ -285,15 +270,15 @@
           null,
           null,
           1,
-          1,
-          1,
-          1,
-          1,
+          0,
+          0,
+          0,
+          0,
           null,
           null
         ]
       }
     },
-    "timestamp": 1583772243
+    "timestamp": 1583773853
   }
 }

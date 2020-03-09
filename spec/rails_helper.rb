@@ -11,7 +11,7 @@ require 'simplecov'
 require 'capybara/rspec'
 require 'capybara-screenshot/rspec'
 require 'webdrivers/chromedriver'
-# require 'devise'
+require 'devise'
 # require 'support/capybara_helpers'
 
 SimpleCov.start
@@ -71,7 +71,7 @@ RSpec.configure do |config|
   config.include Capybara::DSL
   config.include FactoryBot::Syntax::Methods
   config.include ActiveSupport::Testing::TimeHelpers
-  # config.include Devise::Test::ControllerHelpers, type: :controller
+  config.include Devise::Test::ControllerHelpers, type: :controller
   # config.include CapybaraHelpers
 
   config.around do |example|

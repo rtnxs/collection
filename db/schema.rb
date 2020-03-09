@@ -10,7 +10,47 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_09_170418) do
+ActiveRecord::Schema.define(version: 2020_03_09_172320) do
+
+  create_table "comments", force: :cascade do |t|
+    t.string "text"
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "items", force: :cascade do |t|
+    t.string "name"
+    t.string "city"
+    t.string "year"
+    t.integer "type_id", null: false
+    t.integer "photo_id", null: false
+    t.integer "user_id", null: false
+    t.integer "comment_id", null: false
+    t.decimal "price_current"
+    t.decimal "price_purchase"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["comment_id"], name: "index_items_on_comment_id"
+    t.index ["photo_id"], name: "index_items_on_photo_id"
+    t.index ["type_id"], name: "index_items_on_type_id"
+    t.index ["user_id"], name: "index_items_on_user_id"
+  end
+
+  create_table "photos", force: :cascade do |t|
+    t.string "photo_url"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "types", force: :cascade do |t|
+    t.string "name"
+    t.integer "type_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["type_id"], name: "index_types_on_type_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
@@ -27,4 +67,10 @@ ActiveRecord::Schema.define(version: 2020_03_09_170418) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "comments", "users"
+  add_foreign_key "items", "comments"
+  add_foreign_key "items", "photos"
+  add_foreign_key "items", "types"
+  add_foreign_key "items", "users"
+  add_foreign_key "types", "types"
 end
