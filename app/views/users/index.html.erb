@@ -1,4 +1,3 @@
-<p id="notice"><%= notice %></p>
 <div class="btn-group" role="group" aria-label="Basic example">
   <button type="button" class="btn btn-secondary">Left</button>
   <button type="button" class="btn btn-secondary">Middle</button>
@@ -11,7 +10,6 @@
     <tr>
       <th>Name</th>
       <th>Avatar</th>
-      <th>Role</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -21,7 +19,6 @@
       <tr>
         <td><%= user.name %></td>
         <td><%= user.avatar %></td>
-        <td><%= user.role %></td>
         <td><%= link_to 'Show', user %></td>
         <td><%= link_to 'Edit', edit_user_path(user) %></td>
         <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>

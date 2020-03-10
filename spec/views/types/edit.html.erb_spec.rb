@@ -1,18 +1,19 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-RSpec.describe "types/edit", type: :view do
-  before(:each) do
+RSpec.describe 'types/edit', type: :view do
+  before do
     @type = assign(:type, Type.create!(
-      name: "MyString"
-    ))
+                            name: 'MyString'
+                          ))
   end
 
-  it "renders the edit type form" do
+  it 'renders the edit type form' do
     render
 
-    assert_select "form[action=?][method=?]", type_path(@type), "post" do
-
-      assert_select "input[name=?]", "type[name]"
+    assert_select 'form[action=?][method=?]', type_path(@type), 'post' do
+      assert_select 'input[name=?]', 'type[name]'
     end
   end
 end

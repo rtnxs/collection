@@ -1,19 +1,19 @@
+# frozen_string_literal: true
+
 class TypesController < ApplicationController
-  before_action :set_type, only: [:show, :edit, :update, :destroy]
+  before_action :set_type, only: %i[show edit update destroy]
 
   def index
     @types = Type.all
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @type = Type.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @type = Type.new(type_params)
@@ -45,11 +45,12 @@ class TypesController < ApplicationController
   end
 
   private
-    def set_type
-      @type = Type.find(params[:id])
-    end
 
-    def type_params
-      params.require(:type).permit(:name)
-    end
+  def set_type
+    @type = Type.find(params[:id])
+  end
+
+  def type_params
+    params.require(:type).permit(:name)
+  end
 end

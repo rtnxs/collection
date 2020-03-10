@@ -1,19 +1,21 @@
+# frozen_string_literal: true
+
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_item, only: %i[show edit update destroy]
 
   def index
     @items = Item.all
   end
 
   def show
+    @new_comment = @item.comments.build(params[:comment])
   end
 
   def new
     @item = current_user.item.build
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @item = current_user.item.build(item_params)
@@ -45,11 +47,12 @@ class ItemsController < ApplicationController
   end
 
   private
-    def set_item
-      @item = Item.find(params[:id])
-    end
 
-    def item_params
-      params.require(:item).permit(:name, :city, :year, :type_id, :photo_id, :user_id, :comment_id, :price_current, :price_purchase)
-    end
+  def set_item
+    @item = Item.find(params[:id])
+  end
+
+  def item_params
+    params.require(:item).permit(:name, :city, :year, :type_id, :photo_id, :user_id, :comment_id, :price_current, :price_purchase)
+  end
 end

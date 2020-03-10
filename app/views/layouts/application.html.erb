@@ -10,6 +10,42 @@
 </head>
 
 <body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light navbar-static-top">
+  <div class="container">
+    <%= link_to 'В начало', root_path, class: 'navbar-brand' %>
+
+    <div class="collapse navbar-collapse w-100 order-3">
+      <% if user_signed_in? %>
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <%= link_to 'Колекции', items_path, class: 'nav-link' %>
+          </li>
+          <li class="nav-item active">
+            <%= link_to 'Типы', types_path, class: 'nav-link' %>
+          </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <%= link_to 'Профиль', current_user, class: 'nav-link' %>
+          </li>
+          <li class="nav-item active">
+            <%= link_to 'Выйти', destroy_user_session_path, :method => :delete, class: 'nav-link' %>
+          </li>
+      <% else %>
+        <li class="nav-item active">
+          <%= link_to 'Войти', new_user_session_path, class: 'nav-link' %>
+        </li>
+        <li class="nav-item active">
+          <%= link_to 'Зарегистрироваться', new_user_registration_path, class: 'nav-link' %>
+        </li>
+
+        </ul>
+      <% end %>
+    </div>
+
+  </div>
+</nav>
+
 <div class="container">
   <div class="alert-message">
     <%= bootstrap_flash %>

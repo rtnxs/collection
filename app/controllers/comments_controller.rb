@@ -1,29 +1,29 @@
+# frozen_string_literal: true
+
 class CommentsController < ApplicationController
-  before_action :set_comment, only: [:show, :edit, :update, :destroy]
+  before_action :set_comment, only: %i[show edit update destroy]
 
   def index
     @comments = Comment.all
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @comment = Comment.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
-    @comment = Comment.new(comment_params)
+    @item = Item.find(params[:item_id])
+    @new_comment = @item.comments.build(comment_params)
+    @new_comment.user = current_user
 
-    respond_to do |format|
-      if @comment.save
-        format.html { redirect_to @comment, notice: 'Comment was successfully created.' }
-      else
-        format.html { render :new }
-      end
+    if @new_comment.save
+      redirect_to @item, notice: t('Comment was successfully created')
+    else
+      render 'item/show', alert: t('Error')
     end
   end
 
@@ -45,11 +45,12 @@ class CommentsController < ApplicationController
   end
 
   private
-    def set_comment
-      @comment = Comment.find(params[:id])
-    end
 
-    def comment_params
-      params.require(:comment).permit(:text, :user_id)
-    end
+  def set_comment
+    @comment = Comment.find(params[:id])
+  end
+
+  def comment_params
+    params.require(:comment).permit(:text, :user_id, :item_id)
+  end
 end
