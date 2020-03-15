@@ -27,6 +27,8 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+/config/database.yml
+/config/secrets.yml
 
 /public/packs
 /public/packs-test
@@ -34,3 +36,11 @@
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+.generators
+.rakeTasks
+package-lock.json
+
+.idea
+/.env
+.DS_Store
+.ruby-gemset
