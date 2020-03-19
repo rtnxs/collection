@@ -9,16 +9,17 @@ class ItemsController < ApplicationController
 
   def show
     @new_comment = @item.comments.build(params[:comment])
+    @new_photo = @item.photos.build(params[:photo])
   end
 
   def new
-    @item = current_user.item.build
+    @item = current_user.items.build
   end
 
   def edit; end
 
   def create
-    @item = current_user.item.build(item_params)
+    @item = current_user.items.build(item_params)
 
     respond_to do |format|
       if @item.save

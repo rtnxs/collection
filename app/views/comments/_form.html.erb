@@ -1,12 +1,11 @@
 <%= simple_form_for [@item, comment] do |f| %>
-  <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-group">
-    <%= f.input :text %>
+    <%= f.input :text, label: 'Добавить комментарий', as: :text, input_html: {rows: 7} %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, 'Отправить', class: 'btn btn-outline-secondary' %>
+    <%= f.button :submit, 'Отправить', class: 'btn btn-outline-secondary btn-block' %>
   </div>
 <% end %>

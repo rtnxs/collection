@@ -1,13 +1,11 @@
-<div class="buffer-bottom">
+<div class="buffer-bottom mt-4 pt-2 pr-2 pl-2 border rounded">
   <p><%= comment.text %></p>
-  <p>
-    <span>
-      <% if comment.user.present? %>
-        <%= comment.user.name %>
-      <% else %>
-        <em><strong><%= comment.user_name %></strong></em>
-      <% end %>
-    </span>
-    <em><%= l comment.created_at, format: :short %></em>
+  <p class="text-right text-muted mb-0">
+    <%= comment.user.name %>  |
+    <%= l comment.created_at, format: :short %>
+    <%= link_to(
+            'trash', item_comment_path(comment.item, comment),
+            method: :delete, data: {confirm: 'destroy_confirm'}
+        ) %>
   </p>
 </div>

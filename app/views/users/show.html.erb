@@ -1,17 +1,55 @@
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
+<div class="row">
+  <div class="col-md-8 mt-3">
+    <p>Collection this user</p>
+    <table>
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>City</th>
+        <th>Year</th>
+        <th>Type</th>
+        <th>User</th>
+        <th>Price current</th>
+        <th>Price purchase</th>
+        <th colspan="3"></th>
+      </tr>
+      </thead>
 
-<p>
-  <strong>Avatar:</strong>
-  <%= @user.avatar %>
-</p>
+      <tbody>
+      <% @user.items.each do |item| %>
+        <tr>
+          <td><%= item.name %></td>
+          <td><%= item.city %></td>
+          <td><%= item.year %></td>
+          <td><%= item.type_id %></td>
+          <td><%= item.user_id %></td>
+          <td><%= item.price_current %></td>
+          <td><%= item.price_purchase %></td>
+          <td><%= link_to 'Show', item %></td>
+          <td><%= link_to 'Edit', edit_item_path(item) %></td>
+          <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
 
-<p>
-  <strong>Role:</strong>
-  <%= @user.role %>
-</p>
+  <div class="col-md-4 text-right mt-5">
+    <p>
+      <%= image_tag user_avatar(@user), alt: '[User Avatar]', class: 'w-50 rounded-circle' %>
+    </p>
+
+    <p>
+      <strong>Name:</strong>
+      <%= @user.name %>
+    </p>
+
+    <p>
+      <strong>Role:</strong>
+      <%= @user.role %>
+    </p>
+  </div>
+</div>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

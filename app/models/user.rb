@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
-  has_many :item
+  has_many :items
   has_many :comments
   has_many :photos
 
@@ -10,5 +10,5 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :name, presence: true, length: {maximum: 22}
+  validates :name, presence: true, length: { maximum: 22 }
 end

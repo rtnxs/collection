@@ -15,12 +15,7 @@
 
 <p>
   <strong>Type:</strong>
-  <%= @item.type_id %>
-</p>
-
-<p>
-  <strong>Photo:</strong>
-  <%= @item.photo_ids %>
+  <%= @item.type.name %>
 </p>
 
 <p>
@@ -39,12 +34,22 @@
 </p>
 
 <div class="">
-  <%= render partial: 'comments/form',
-             locals: {comment: @new_comment || @item.comments.build} %>
+  <%= render partial: 'photos/photo', collection: @item.photos.except(@new_photo) %>
+</div>
 
-  <div class="buffer-both">
+<div class="event-photo-form">
+  <%= render partial: 'photos/form', locals: {photo: @new_photo || @item.photos.build} if current_user.present? %>
+</div>
+
+<div class="row">
+  <div class="col-8 ">
     <%= render partial: 'comments/comment',
                collection: @item.comments.except(@new_comment).order(created_at: :desc) %>
+
+  </div>
+  <div class="col-4">
+    <%= render partial: 'comments/form',
+               locals: {comment: @new_comment || @item.comments.build} %>
   </div>
 </div>
 
