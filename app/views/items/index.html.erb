@@ -1,5 +1,9 @@
 <%= link_to 'New Item', new_item_path %>
 
 <div class="row mt-4 justify-content-center">
+  <%= render 'search_form' %>
+</div>
+
+<div class="row mt-4 justify-content-center">
   <%= render partial: 'items/item', collection: @items %>
 </div>

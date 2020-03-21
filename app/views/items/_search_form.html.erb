@@ -1,0 +1,8 @@
+<%= search_form_for @q, builder: SimpleForm::FormBuilder,
+                    wrapper: :inline_form,
+                    html: {class: "form-inline"} do |f| %>
+  <%= f.input :name_cont, label: false %>
+  <%= f.input :type_name_cont, label: false, collection: Type.all.map(&:name) %>
+  <%= f.submit 'Поиск', class: 'btn btn-outline-secondary' %>
+  <%= link_to "Сброс", items_path, class: 'btn btn-outline-secondary' %>
+<% end %>
