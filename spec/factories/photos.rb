@@ -2,6 +2,8 @@
 
 FactoryBot.define do
   factory :photo do
-    photo_url { 'MyString' }
+    association :user
+    association :item
+    photo_url { Faker::Avatar.image }
   end
 end
