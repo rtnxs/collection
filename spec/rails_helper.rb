@@ -12,7 +12,7 @@ require 'capybara/rspec'
 require 'capybara-screenshot/rspec'
 require 'webdrivers/chromedriver'
 require 'devise'
-# require 'support/capybara_helpers'
+require 'support/request_spec_helper'
 
 SimpleCov.start
 # Add additional requires below this line. Rails is not loaded until this point!
@@ -72,7 +72,7 @@ RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
   config.include ActiveSupport::Testing::TimeHelpers
   config.include Devise::Test::ControllerHelpers, type: :controller
-  # config.include CapybaraHelpers
+  config.include RequestSpecHelper, type: :request
 
   config.around do |example|
     DatabaseCleaner.cleaning do

@@ -3,8 +3,6 @@
 FactoryBot.define do
   factory :item do
     association :user
-    # association :comment
-    # association :photo
     association :type
 
     name { Faker::Company.name[0..10] }
