@@ -5,7 +5,7 @@ FactoryBot.define do
     association :user
     association :type
 
-    name { Faker::Company.name[0..10] }
+    name { Faker::Name.name[0..12] }
     city { Faker::Address.city }
     year { Faker::Date.backward(days: 2) }
     price_current { Faker::Number.decimal(l_digits: 2) }

@@ -2,6 +2,6 @@
 
 FactoryBot.define do
   factory :type do
-    name { Faker::Commerce.department[0..11] }
+    name { 'type' }
   end
 end

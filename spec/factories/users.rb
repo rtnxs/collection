@@ -2,7 +2,8 @@
 
 FactoryBot.define do
   factory :user do
-    name { Faker::Name.name_with_middle[0..21] }
+    # name { Faker::Name.name[0..12] }
+    name { 'Alesha' }
     email { Faker::Internet.email }
     password { Faker::Internet.password }
     avatar { Faker::Avatar.image }

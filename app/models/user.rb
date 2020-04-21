@@ -10,5 +10,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :name, presence: true, length: { maximum: 22 }
+  validates :name, :email, :role, presence: true
+  validates :name, length: { maximum: 22 }, format: { with: USERNAME_REGEXP }
+  validates :email, format: { with: EMAIL_REGEXP }
+  validates :role, inclusion: { in: %w[user admin] }
 end

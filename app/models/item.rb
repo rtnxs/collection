@@ -6,6 +6,5 @@ class Item < ApplicationRecord
   has_many :comments
   has_many :photos
 
-  validates :name, :city, presence: true, length: { maximum: 40 }
-  validates :year, presence: true
+  validates :name, :city, :year, presence: true, length: { maximum: 22 }
 end
