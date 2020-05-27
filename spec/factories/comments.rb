@@ -4,6 +4,6 @@ FactoryBot.define do
   factory :comment do
     association :user
     association :item
-    text { Faker::String.random(length: [2, [1..10]]) }
+    text { Faker::String.random(length: 10) }
   end
 end

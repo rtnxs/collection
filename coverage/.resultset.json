@@ -1,6 +1,80 @@
 {
   "RSpec": {
     "coverage": {
+      "/home/user/projects/collection/app/controllers/comments_controller.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          null,
+          null,
+          null,
+          1,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          null,
+          null,
+          null,
+          1,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          1,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null
+        ]
+      },
+      "/home/user/projects/collection/app/controllers/application_controller.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          0,
+          null,
+          null,
+          null,
+          null,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
       "/home/user/projects/collection/app/models/comment.rb": {
         "lines": [
           null,
@@ -10,25 +84,6 @@
           1,
           null,
           1,
-          null
-        ]
-      },
-      "/home/user/projects/collection/spec/models/item_spec.rb": {
-        "lines": [
-          null,
-          null,
-          1,
-          null,
-          1,
-          2,
-          null,
-          2,
-          2,
-          2,
-          2,
-          2,
-          2,
-          2,
           null
         ]
       },
@@ -46,53 +101,6 @@
           null
         ]
       },
-      "/home/user/projects/collection/spec/models/photo_spec.rb": {
-        "lines": [
-          null,
-          null,
-          1,
-          null,
-          1,
-          2,
-          null,
-          2,
-          2,
-          2,
-          2,
-          null
-        ]
-      },
-      "/home/user/projects/collection/app/models/photo.rb": {
-        "lines": [
-          null,
-          null,
-          1,
-          1,
-          1,
-          null,
-          1,
-          null
-        ]
-      },
-      "/home/user/projects/collection/spec/models/type_spec.rb": {
-        "lines": [
-          null,
-          null,
-          1,
-          null,
-          1,
-          2,
-          null,
-          2,
-          2,
-          2,
-          2,
-          2,
-          2,
-          2,
-          null
-        ]
-      },
       "/home/user/projects/collection/app/models/type.rb": {
         "lines": [
           null,
@@ -103,37 +111,8 @@
           1,
           null
         ]
-      },
-      "/home/user/projects/collection/spec/models/user_spec.rb": {
-        "lines": [
-          null,
-          null,
-          1,
-          null,
-          1,
-          2,
-          null,
-          2,
-          2,
-          2,
-          2,
-          null,
-          2,
-          null,
-          2,
-          2,
-          2,
-          2,
-          null,
-          2,
-          2,
-          2,
-          2,
-          2,
-          null
-        ]
       }
     },
-    "timestamp": 1587491073
+    "timestamp": 1588176675
   }
 }
