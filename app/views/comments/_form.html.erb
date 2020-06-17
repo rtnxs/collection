@@ -2,10 +2,10 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-group mt-4">
-    <%= f.input :text, label: false, placeholder: 'Enter text comment', as: :text, input_html: {rows: 7} %>
+    <%= f.input :text, label: false, placeholder: "Enter text comment", as: :text, input_html: { rows: 7 } %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, 'Отправить', class: 'btn btn-outline-secondary btn-block' %>
+    <%= f.button :submit, "Отправить", class: "btn btn-outline-secondary btn-block" %>
   </div>
 <% end %>

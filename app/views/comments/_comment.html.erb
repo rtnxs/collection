@@ -3,8 +3,8 @@
   <p class="text-right text-muted mb-0">
     <sub>
       <%= comment.user.name %>  |
-    <%= l comment.created_at, format: :short %>
-    <%= link_to(fa_icon('trash'), item_comment_path(comment.item, comment),
+      <%= l comment.created_at, format: :short %>
+      <%= link_to(fa_icon('trash'), item_comment_path(comment.item, comment),
             method: :delete, data: {confirm: 'destroy_confirm'}) if current_user == comment.user %>
     </sub>
   </p>
