@@ -23,11 +23,6 @@ group :production do
 end
 
 group :development, :test do
-  gem "capistrano", "~> 3.11"
-  gem "capistrano-rails", "~> 1.6"
-  gem "capistrano-passenger", "~> 0.2.0"
-  gem "capistrano-rbenv", "~> 2.1", ">= 2.1.4"
-
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
   gem "capybara"
   gem "factory_bot_rails"
@@ -44,6 +39,11 @@ group :development, :test do
 end
 
 group :development do
+  gem "capistrano", "~> 3.11"
+  gem "capistrano-rails", "~> 1.6"
+  gem "capistrano-passenger", "~> 0.2.0"
+  gem "capistrano-rbenv", "~> 2.1", ">= 2.1.4"
+
   gem "web-console", ">= 3.3.0"
   gem "listen", ">= 3.0.5", "< 3.2"
   gem "spring"
