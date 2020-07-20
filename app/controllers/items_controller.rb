@@ -2,6 +2,7 @@
 
 class ItemsController < ApplicationController
   before_action :set_item, only: %i[show edit update destroy]
+  before_action :authenticate_user!, only: %i[new create update destroy]
 
   def index
     @q = Item.ransack(params[:q])
@@ -24,7 +25,7 @@ class ItemsController < ApplicationController
 
     respond_to do |format|
       if @item.save
-        format.html { redirect_to @item, notice: 'Item was successfully created.' }
+        format.html { redirect_to @item, notice: "Item was successfully created." }
       else
         format.html { render :new }
       end
@@ -34,7 +35,7 @@ class ItemsController < ApplicationController
   def update
     respond_to do |format|
       if @item.update(item_params)
-        format.html { redirect_to @item, notice: 'Item was successfully updated.' }
+        format.html { redirect_to @item, notice: "Item was successfully updated." }
       else
         format.html { render :edit }
       end
@@ -44,7 +45,7 @@ class ItemsController < ApplicationController
   def destroy
     @item.destroy
     respond_to do |format|
-      format.html { redirect_to items_url, notice: 'Item was successfully destroyed.' }
+      format.html { redirect_to items_url, notice: "Item was successfully destroyed." }
     end
   end
 
