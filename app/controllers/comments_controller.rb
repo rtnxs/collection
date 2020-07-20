@@ -3,6 +3,7 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: %i[destroy]
   before_action :set_item, only: %i[create destroy]
+  before_action :authenticate_user!, only: %i[new create update destroy]
 
   def create
     @new_comment = @item.comments.build(comment_params)
