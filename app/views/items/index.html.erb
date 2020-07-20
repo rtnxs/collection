@@ -1,4 +1,6 @@
-<%= link_to 'New Item', new_item_path %>
+<% if current_user %>
+  <%= link_to 'New Item', new_item_path %>
+<% end %>
 
 <div class="row mt-4 justify-content-center">
   <%= render 'search_form' %>
