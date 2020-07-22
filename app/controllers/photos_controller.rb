@@ -3,6 +3,7 @@
 class PhotosController < ApplicationController
   before_action :set_photo, only: %i[destroy]
   before_action :set_item, only: %i[create destroy]
+  before_action :authenticate_user!
 
   def create
     @new_photo = @item.photos.build(photo_params)
