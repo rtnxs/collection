@@ -1,11 +1,11 @@
 <div class="row justify-content-center mt-md-5 mb-md-5">
   <div class="col-md-6">
-    <div class="card shadow shadow-lg">
+    <div class="card shadow-lg">
       <div class="card-header mb-3">
-        <h2 class="text-center"><%= t('.create_acc') %></h2>
+        <h2 class="text-center text-secondary"><%= t('.create_acc') %></h2>
       </div>
 
-      <div class="container">
+      <div class="container shadow-lg">
         <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
           <%= f.error_notification %>
 
