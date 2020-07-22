@@ -1,28 +1,45 @@
-<h2>Sign sdfsfup</h2>
+<div class="row justify-content-center mt-md-5 mb-md-5">
+  <div class="col-md-6">
+    <div class="card shadow shadow-lg">
+      <div class="card-header mb-3">
+        <h2 class="text-center"><%= t('.create_acc') %></h2>
+      </div>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
+      <div class="container">
+        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :name,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "name" }%>
-    <%= f.input :email,
-                required: true,
-                input_html: { autocomplete: "email" }%>
-    <%= f.input :password,
-                required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: true,
-                input_html: { autocomplete: "new-password" } %>
+          <%= f.input :name,
+                      required: true,
+                      label: false,
+                      autofocus: true,
+                      placeholder: 'username',
+                      input_html: {autocomplete: "name"} %>
+          <%= f.input :email,
+                      required: true,
+                      label: false,
+                      placeholder: 'email@email.com',
+                      input_html: {autocomplete: "email"} %>
+          <%= f.input :password,
+                      required: true,
+                      label: false,
+                      placeholder: 'password',
+                      hint: ("#{@minimum_password_length} #{t('.char_min')}" if @minimum_password_length),
+                      input_html: {autocomplete: "new-password"} %>
+          <%= f.input :password_confirmation,
+                      required: true,
+                      label: false,
+                      placeholder: t('.confirm_password'),
+                      input_html: {autocomplete: "new-password"} %>
+          <%= f.button :submit, t('.sign_up'), class: 'btn btn-outline-success mb-3' %>
+        <% end %>
+      </div>
+
+      <div class="card-footer text-md-right">
+        <p class="text-muted small">
+          <%= link_to t('.already_reg'), new_session_path(resource_name) %>
+        </p>
+      </div>
+    </div>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
