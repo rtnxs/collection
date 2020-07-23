@@ -1,32 +1,45 @@
-<%= form_with(model: user, local: true) do |form| %>
-  <% if user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+<%#= form_with(model: user, local: true) do |form| %>
+  <%# if user.errors.any? %>
+<!--    <div id="error_explanation">-->
+<!--      <h2><%#= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>-->
 
-      <ul>
-        <% user.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+<!--      <ul>-->
+        <%# user.errors.full_messages.each do |message| %>
+<!--          <li><%#= message %></li>-->
+        <%# end %>
+<!--      </ul>-->
+<!--    </div>-->
+  <%# end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
+<!--  <div class="field">-->
+    <%#= form.label :name %>
+    <%#= form.text_field :name %>
+<!--  </div>-->
 
-  <div class="field">
-    <%= form.label :avatar %>
-    <%= form.text_field :avatar %>
-  </div>
+<!--  <div class="field">-->
+    <%#= form.label :avatar %>
+    <%#= form.text_field :avatar %>
+<!--  </div>-->
 
-  <div class="field">
-    <%= form.label :role %>
-    <%= form.text_field :role %>
-  </div>
+<!--  <div class="field">-->
+    <%#= form.label :role %>
+    <%#= form.text_field :role %>
+<!--  </div>-->
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+<!--  <div class="actions">-->
+    <%#= form.submit %>
+<!--  </div>-->
+<%# end %>
+
+
+<br>
+<%= simple_form_for user do |f| %>
+  <%= f.error_notification %>
+
+  <%= f.input :name %>
+  <%= f.input :avatar %>
+  <%= f.button :submit, 'Update', class: 'btn btn-outline-success' %>
 <% end %>
+
+<br>
+<%= link_to 'Сменить пароль', edit_user_registration_path %>
