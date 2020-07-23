@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_09_171703) do
+ActiveRecord::Schema.define(version: 2020_07_23_173710) do
 
   create_table "comments", force: :cascade do |t|
     t.string "text"
@@ -44,6 +44,12 @@ ActiveRecord::Schema.define(version: 2020_03_09_171703) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["item_id"], name: "index_photos_on_item_id"
     t.index ["user_id"], name: "index_photos_on_user_id"
+  end
+
+  create_table "roles", force: :cascade do |t|
+    t.string "role"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "types", force: :cascade do |t|
