@@ -6,6 +6,26 @@
   <%= render 'search_form' %>
 </div>
 
-<div class="row mt-4 justify-content-center">
-  <%= render partial: 'items/item', collection: @items %>
-</div>
+<!--<div class="row mt-4 justify-content-center">-->
+<%#= render partial: 'items/item', collection: @items %>
+<!--</div>-->
+
+<% @items.each_with_index do |item, i| %>
+  <% side = i.odd? ? 'left_posit' : 'right_posit' %>
+  <% direct = i.odd? ? 'flex-row' : 'flex-row-reverse' %>
+
+  <div class="<%= side %> container mt-5 border_rad">
+    <div class="row d-flex <%= direct %> justify-content-between">
+      <div class="col-md-6 m-auto text-center">
+        <h3><%= item.name %></h3>
+        <h3><%= item.type.name %></h3>
+        <h3><%= item.user.name %></h3>
+      </div>
+      <div class="border_rad col-md-auto m-2">
+        <%= link_to content_tag('div', '', class: 'item-background border_rad',
+                                style: "background-image: url(#{asset_path('item.jpg')})"), item_path(item) %>
+
+      </div>
+    </div>
+  </div>
+<% end %>
