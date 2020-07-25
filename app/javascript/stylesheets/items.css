@@ -29,3 +29,39 @@
 .border_rad {
   border-radius: 20px;
 }
+
+@media (max-width: 640px) {
+  .left_posit,
+  .right_posit {
+    position: relative;
+    left: 0px;
+  }
+}
+
+@media (max-width: 960px) {
+  .item-background {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media (max-width: 640px) {
+  .item-background {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+@media (max-width: 320px) {
+  .item-background {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@media (max-width: 320px) {
+  .item-background {
+    width: 50px;
+    height: 50px;
+  }
+}
