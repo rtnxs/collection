@@ -1,5 +1,5 @@
 <%= link_to image_tag(photo.photo_url, size: "150x150"), photo.photo_url %>
-  <% if current_user == photo.user %>
-    <%= link_to fa_icon('trash'), item_photo_path(photo.item, photo),
-                method: :delete, data: {confirm: 'a_u_shure'} %>
-  <% end %>
+<% if current_user == photo.user %>
+  <%= link_to fa_icon('trash'), item_photo_path(photo.item, photo),
+              method: :delete, data: {confirm: 'a_u_shure'} %>
+<% end %>
