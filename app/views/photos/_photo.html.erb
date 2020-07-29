@@ -1,4 +1,4 @@
-<% if current_user == photo.user || current_user == item.user %>
+<% if current_user == photo.user || current_user == photo.item.user %>
   <% delete = "#{link_to(fa_icon('trash'), item_photo_path(photo.item, photo),
                       method: :delete, data: {confirm: 'a_u_shure'}) }" %>
 <% end %>
