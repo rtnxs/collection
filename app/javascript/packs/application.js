@@ -9,3 +9,4 @@ import '@fortawesome/fontawesome-free/js/all'
 
 import '../stylesheets/application.scss'
 import '../plugins/lightbox2'
+import '../plugins/tiny_slider'
