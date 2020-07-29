@@ -10,8 +10,9 @@ document.addEventListener("turbolinks:load", () => {
         mouseDrag: true,
         arrowKeys: true,
         nav: false,
-        navPosition: "bottom",
-        responsive: {
+        autoplay: true,
+        autoplayButtonOutput: false,
+                responsive: {
             500: {
                 gutter: 20,
                 items: 2
