@@ -8,26 +8,26 @@ document.addEventListener("turbolinks:load", () => {
         container: '.my-slider',
         items: 1,
         mouseDrag: true,
-        // controls: false,
         arrowKeys: true,
         nav: false,
         navPosition: "bottom",
-        // nextButton: true,
-        // prevButton: true,
         responsive: {
+            500: {
+                gutter: 20,
+                items: 2
+            },
             640: {
-                edgePadding: 20,
                 gutter: 20,
                 items: 2
             },
             700: {
-                gutter: 30
+                gutter: 30,
+                items: 2
             },
             900: {
+                gutter: 30,
                 items: 3
             }
         }
-
-
     });
 })
