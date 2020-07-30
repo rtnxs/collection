@@ -17,9 +17,10 @@
         <h3><%= item.type.name %></h3>
         <h3><%= item.user.name %></h3>
       </div>
-      <% if item.type.name == 'Монеты' %>
+      <h> <%= item.type.name %></h>
+      <% if item.type.name.downcase == 'монеты' %>
         <%= render partial: 'items/mark', locals: {item: item} %>
-      <% elsif item.type.name == 'Марки' %>
+      <% elsif item.type.name.downcase == 'марки' %>
         <%= render partial: 'items/coin', locals: {item: item} %>
       <% else %>
         <%= render partial: 'items/default_type', locals: {item: item} %>
