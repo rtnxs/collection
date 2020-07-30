@@ -10,18 +10,20 @@
   <% side = i.odd? ? 'left_posit' : 'right_posit' %>
   <% direct = i.odd? ? 'flex-row' : 'flex-row-reverse' %>
 
-  <div class="<%= side %> container mt-5 border_rad">
+  <div class="<%= side %> container mt-5 border_rad20">
     <div class="row d-flex <%= direct %> justify-content-between">
       <div class="col-sm-6 m-auto text-center">
         <h3><%= item.name %></h3>
         <h3><%= item.type.name %></h3>
         <h3><%= item.user.name %></h3>
       </div>
-      <div class="border_rad col-sm-auto m-2">
-        <%= link_to content_tag('div', '', class: 'item-background border_rad',
-                                style: "background-image: url(#{asset_path('item.jpg')})"), item_path(item) %>
-
-      </div>
+      <% if item.type.name == 'mark' %>
+        <%= render partial: 'items/mark', locals: {item: item} %>
+      <% elsif item.type.name == 'coin' %>
+        <%= render partial: 'items/coin', locals: {item: item} %>
+      <% else %>
+        <%= render partial: 'items/default_type', locals: {item: item} %>
+      <% end %>
     </div>
   </div>
 <% end %>
