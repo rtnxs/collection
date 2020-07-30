@@ -19,9 +19,9 @@
       </div>
       <h> <%= item.type.name %></h>
       <% if item.type.name.downcase == 'монеты' %>
-        <%= render partial: 'items/mark', locals: {item: item} %>
-      <% elsif item.type.name.downcase == 'марки' %>
         <%= render partial: 'items/coin', locals: {item: item} %>
+      <% elsif item.type.name.downcase == 'марки' %>
+        <%= render partial: 'items/mark', locals: {item: item} %>
       <% else %>
         <%= render partial: 'items/default_type', locals: {item: item} %>
       <% end %>
