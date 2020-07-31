@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
+  before_action :set_locale
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
 
@@ -14,5 +15,28 @@ class ApplicationController < ActionController::Base
         :sign_up,
         keys: %i[name password password_confirmation current_password]
     )
+  end
+
+  def default_url_options
+    I18n.locale == I18n.default_locale ? { locale: nil } : { locale: I18n.locale }
+  end
+
+  private
+
+  def set_locale
+    locale =
+      if params[:locale]
+        session[:locale] = params[:locale]
+      elsif current_user
+        current_user.locale
+      elsif session[:locale]
+        session[:locale]
+      else
+        http_accept_language.compatible_language_from(I18n.available_locales)
+      end
+
+    if locale && I18n.available_locales.include?(locale.to_sym)
+      session[:locale] = I18n.locale = locale.to_sym
+    end
   end
 end

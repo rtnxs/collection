@@ -14,6 +14,7 @@ gem "webdrivers", "~> 4.0"
 gem "devise"
 gem "devise-i18n"
 gem "ransack", github: "activerecord-hackery/ransack"
+gem "http_accept_language"
 # gem 'image_processing', '~> 1.2'
 
 gem "bootsnap", ">= 1.4.2", require: false
