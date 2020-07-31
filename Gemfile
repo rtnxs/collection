@@ -13,6 +13,7 @@ gem "simple_form"
 gem "webdrivers", "~> 4.0"
 gem "devise"
 gem "devise-i18n"
+gem "rails-i18n", '~> 6.0.0'
 gem "ransack", github: "activerecord-hackery/ransack"
 gem "http_accept_language"
 # gem 'image_processing', '~> 1.2'
