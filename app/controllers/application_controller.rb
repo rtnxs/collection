@@ -35,6 +35,8 @@ class ApplicationController < ActionController::Base
         http_accept_language.compatible_language_from(I18n.available_locales)
       end
 
-    session[:locale] = I18n.locale = locale.to_sym if locale && I18n.available_locales.include?(locale.to_sym)
+    if locale && I18n.available_locales.include?(locale.to_sym)
+      session[:locale] = I18n.locale = locale.to_sym
+    end
   end
 end
