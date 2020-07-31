@@ -4,6 +4,7 @@
     background-size: cover;
     background-position: center;
 }
+
 .left_posit {
     max-width: 800px;
     max-height: 400px;
@@ -13,6 +14,7 @@
     position: relative;
     left: -25px;
 }
+
 .right_posit {
     max-width: 800px;
     max-height: 400px;
@@ -22,12 +24,11 @@
     position: relative;
     left: +25px;
 }
+
 .border_rad20 {
     border-radius: 20px;
 }
-.border_circle {
-    border-radius: 50%;
-}
+
 .mark {
     background: radial-gradient(transparent, transparent 4px, white 4px, white);
     padding: 10px;
@@ -37,6 +38,7 @@
     background-position: -10px -10px;
     margin: 0 auto;
 }
+
 .coin {
     padding: 0;
     width: 250px;
@@ -50,6 +52,7 @@
     height: 250px;
     margin: 0 auto;
 }
+
 @media (max-width: 768px) {
     .coin,
     .def_type {
@@ -61,6 +64,7 @@
         height: 141px;
     }
 }
+
 @media (max-width: 640px) {
     .left_posit,
     .right_posit {
@@ -77,6 +81,7 @@
         height: 130px;
     }
 }
+
 @media (max-width: 320px) {
     .coin,
     .def_type {

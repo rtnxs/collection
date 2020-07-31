@@ -26,10 +26,13 @@
       <ul class="navbar-nav ml-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to t('views.profile'), current_user, class: 'nav-link' %>
+            <%= link_to image_tag(user_avatar(current_user), size: "40x40",
+                                  alt: "#{t('views.profile')}", class: "rounded-circle"), user_path(current_user) %>
           </li>
           <li class="nav-item active">
-            <%= link_to t('views.log_out'), destroy_user_session_path, :method => :delete, class: 'nav-link' %>
+            <%= link_to image_tag(('logout.jpg'), size: "40x40", class: "rounded-circle ml-2 mr-2"),
+                        destroy_user_session_path, method: :delete %>
+            <%#= link_to t('views.log_out'), destroy_user_session_path, method: :delete, class: 'nav-link' %>
           </li>
         <% else %>
           <li class="nav-item active ml-auto">
@@ -46,7 +49,7 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <% I18n.available_locales.reject { |l| l == I18n.locale }.each do |l| %>
-              <%= content_tag('div') do %>
+              <%= content_tag :div do %>
                 <a href=" <%= url_for(locale: l,) %> " class="dropdown-item">
                   <%= image_tag("#{l}.png") %>
                 </a>
