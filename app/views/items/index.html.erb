@@ -7,11 +7,8 @@
 </div>
 
 <% @items.each_with_index do |item, i| %>
-  <% side = i.odd? ? 'left_posit' : 'right_posit' %>
-  <% direct = i.odd? ? 'flex-row' : 'flex-row-reverse' %>
-
-  <div class="<%= side %> container mt-5 border_rad20">
-    <div class="row d-flex <%= direct %> justify-content-between">
+  <div class="<%= back_side(i) %> container mt-5 border_rad20">
+    <div class="row d-flex <%= direct_cont(i) %> justify-content-between">
       <div class="col-sm-6 m-auto text-center">
         <h3><%= item.name %></h3>
         <h3><%= item.type.name %></h3>
