@@ -7,6 +7,13 @@ ru:
     home: В начало
     collection: Колекции
     type: Типы
+    new_item: Новая Коллекция
+
+  simple_form:
+    search: Поиск
+    reset: Сброс
+    placeholder:
+      search_cont: заголовок....
 
 
   devise:

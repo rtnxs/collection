@@ -11,3 +11,10 @@ en:
     home: Home
     collection: Collections
     type: Types
+    new_item: New Collection
+
+  simple_form:
+    search: Search
+    reset: Reset
+    placeholder:
+      search_cont: title....
