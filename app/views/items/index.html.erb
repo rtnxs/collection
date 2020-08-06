@@ -1,9 +1,12 @@
-<% if current_user %>
-  <%= link_to t('views.new_item'), new_item_path, class: 'btn btn-outline-info mt-3' %>
-<% end %>
-
-<div class="row mt-4 justify-content-center">
-  <%= render 'search_form' %>
+<div class="row">
+  <div class="col-4">
+    <% if current_user %>
+      <%= link_to t('views.new_item'), new_item_path, class: 'btn btn-outline-info' %>
+    <% end %>
+  </div>
+  <div class="col-auto">
+    <%= render 'search_form' %>
+  </div>
 </div>
 
 <% @items.each_with_index do |item, i| %>
@@ -14,9 +17,9 @@
         <h3><%= item.type.name %></h3>
         <h3><%= item.user.name %></h3>
       </div>
-      <% if item.type.name.downcase == 'монеты' %>
+      <% if item.type.name.downcase == 'coin' %>
         <%= render partial: 'items/coin_type', locals: { item: item } %>
-      <% elsif item.type.name.downcase == 'марки' %>
+      <% elsif item.type.name.downcase == 'mark' %>
         <%= render partial: 'items/mark_type', locals: { item: item } %>
       <% else %>
         <%= render partial: 'items/default_type', locals: { item: item } %>

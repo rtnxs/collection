@@ -8,10 +8,10 @@ module ItemsHelper
   end
 
   def random_coin_background
-    %w[assets/coin.jpg assets/coin2.jpg assets/coin3.jpg].sample
+    %w[coin.jpg coin2.jpg coin3.jpg].sample
   end
 
   def random_mark_background
-    %w[assets/mark.jpg assets/mark2.jpg].sample
+    %w[mark.jpg mark2.jpg].sample
   end
 end
