@@ -1,55 +1,41 @@
 <div class="row">
   <div class="col-md-8 mt-3">
-    <p>Collection this user</p>
-    <table>
-      <thead>
-      <tr>
-        <th>Name</th>
-        <th>City</th>
-        <th>Year</th>
-        <th>Type</th>
-        <th>User</th>
-        <th>Price current</th>
-        <th>Price purchase</th>
-        <th colspan="3"></th>
-      </tr>
-      </thead>
+    <% if @user.items.any? %>
+      <p><%= t('views.collection') %></p>
 
-      <tbody>
       <% @user.items.each do |item| %>
-        <tr>
-          <td><%= item.name %></td>
-          <td><%= item.city %></td>
-          <td><%= item.year %></td>
-          <td><%= item.type_id %></td>
-          <td><%= item.user_id %></td>
-          <td><%= item.price_current %></td>
-          <td><%= item.price_purchase %></td>
-          <td><%= link_to 'Show', item %></td>
-          <td><%= link_to 'Edit', edit_item_path(item) %></td>
-          <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
+        <div class="rov">
+          <div class="col-md-4">
+            <%= item.name %>
+            <span class="float-right"><%= link_to 'Show', item %></span>
+          </div>
+        </div>
       <% end %>
-      </tbody>
-    </table>
+    <% end %>
+
   </div>
 
   <div class="col-md-4 text-right mt-5">
     <p>
-      <%= image_tag user_avatar(@user), size: "200x200" , class: 'rounded-circle' %>
+      <%= image_tag user_avatar(@user), size: "200x200", class: 'rounded-circle' %>
     </p>
 
     <p>
-      <strong>Name:</strong>
+      <strong><%= t('models.user.atrributes.name') %>: </strong>
       <%= @user.name %>
     </p>
 
-    <p>
-      <strong>Role:</strong>
-      <%= @user.role %>
-    </p>
+    <% if user_admin? %>
+      <p>
+        <strong><%= t('models.user.atrributes.role') %>: </strong>
+        <%= @user.role %>
+      </p>
+    <% end %>
+
   </div>
 </div>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<% if user_can_edit?(@user) %>
+  <%= link_to 'Edit', edit_user_path(@user) %> |
+  <%= link_to 'Back', users_path %>
+<% end %>

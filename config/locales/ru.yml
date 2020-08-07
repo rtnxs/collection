@@ -1,4 +1,10 @@
 ru:
+  models:
+    user:
+      atrributes:
+        name: Имя
+        role: Админ
+
   views:
     sing_up: Зарегистрироваться
     log_in: Войти

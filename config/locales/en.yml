@@ -1,7 +1,11 @@
 en:
-  model:
+  models:
     item:
       name_cont: 'name_cont'
+    user:
+      atrributes:
+        name: Name
+        role: Admin
 
   views:
     sing_up: Sing Up

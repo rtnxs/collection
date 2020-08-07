@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_locale
+  helper_method :user_can_edit?, :user_admin?
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(
@@ -19,6 +20,14 @@ class ApplicationController < ActionController::Base
 
   def default_url_options
     I18n.locale == I18n.default_locale ? { locale: nil } : { locale: I18n.locale }
+  end
+
+  def user_admin?
+    current_user.role == 'admin'
+  end
+
+  def user_can_edit?(model)
+    user_signed_in? && (model.try(:user) == current_user || user_admin? || current_user == @user)
   end
 
   private

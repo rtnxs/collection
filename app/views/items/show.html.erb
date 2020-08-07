@@ -41,9 +41,11 @@
   </div>
 </div>
 
-<div class="event-photo-form">
-  <%= render partial: "photos/form", locals: {photo: @new_photo || @item.photos.build} if current_user.present? %>
-</div>
+<% if user_can_edit?(@item) %>
+  <div class="event-photo-form">
+    <%= render partial: "photos/form", locals: { photo: @new_photo || @item.photos.build } if current_user.present? %>
+  </div>
+<% end %>
 
 <div class="row">
   <div class="col-8 ">
@@ -53,12 +55,12 @@
   </div>
   <div class="col-4">
     <%= render partial: "comments/form",
-               locals: {comment: @new_comment || @item.comments.build} %>
+               locals: { comment: @new_comment || @item.comments.build } %>
   </div>
 </div>
 
-<% if current_user %>
+<% if user_can_edit?(@item) %>
   <%= link_to "Edit", edit_item_path(@item) %> |
   <%= link_to "Back", items_path %> |
-  <%= link_to "Destroy", @item, method: :delete, data: {confirm: "Are you sure?"} %>
+  <%= link_to "Destroy", @item, method: :delete, data: { confirm: "Are you sure?" } %>
 <% end %>
